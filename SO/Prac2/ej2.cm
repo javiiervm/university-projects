@@ -1,0 +1,70 @@
+// ==================== CONSTANTS ====================
+
+const int bufferSize = 25;  // Max buffer size, allowing up to 5 items.
+
+int buffer = 0;  // Variable simulating the buffer, starts with 0 items.
+
+semaphore s = 1, n = 0, e = bufferSize;  // Semaphores for synchronization:
+// 's' controls access to the critical section, initialized to 1 (available).
+// 'n' tracks items in the buffer, starts at 0 since the buffer is empty.
+// 'e' tracks empty slots in the buffer, starts at bufferSize (5 empty slots).
+
+// ==================== FUNCTIONS ====================
+
+void add_buffer() {
+    buffer = buffer + 1;  // Adds one item to the buffer.
+}
+
+void take_buffer() {
+    buffer = buffer - 1;  // Removes one item from the buffer.
+}
+
+// ==================== FUNCTION DECLARATIONS ====================
+
+void produce() {}  // Simulates item production (no actual code).
+void consume() {}  // Simulates item consumption (no actual code).
+
+// ==================== PRODUCER ====================
+
+void producer() {
+    for(;;) {  // Infinite loop for continuous production.
+        produce();  // Produce an item.
+
+        p(e);  // Wait for an empty slot in buffer; decreases 'e' by 1.
+
+        p(s);  // Enter critical section, locks buffer access by setting 's' to 0.
+
+        add_buffer();  // Add item to the buffer.
+        
+        v(s);  // Exit critical section; unlocks buffer by setting 's' to 1.
+
+        v(n);  // Signals item is ready to consume; increments 'n' (item count).
+    }
+}
+
+// ==================== CONSUMER ====================
+
+void consumer() {
+    for(;;) {  // Infinite loop for continuous consumption.
+        p(n);  // Wait for item in buffer; decreases 'n' by 1.
+
+        p(s);  // Enter critical section; locks buffer access by setting 's' to 0.
+
+        take_buffer();  // Remove item from buffer.
+        
+        v(s);  // Exit critical section; unlocks buffer by setting 's' to 1.
+
+        v(e);  // Signals slot is available in buffer; increments 'e' (empty slot count).
+
+        consume();  // Consume the item.
+    }
+}
+
+// ==================== MAIN ====================
+
+void main() {
+    cobegin {  // Concurrently starts producer and consumer processes.
+          producer();  // Starts the producer function.
+          consumer();  // Starts the consumer function.
+    }
+}

@@ -22,4 +22,4 @@ Here you can find projects and programming exercises I've made in class during m
 - [LPP](./LPP): Functional programming projects (mainly using Scheme) and introduction to Swift.
 - [P3](./P3): OOP programming deeply (inheritance, generalization...) using Java.
 - [PED](./PED): Data structures, OOP design in C++ of vectors, lists and binary trees.
-- [SO](./SO): Operating systems (sockets, pipelines...), simple projects using mainly C++ and a bit of Python.
+- [SO](./SO): Operating systems (sockets, pipelines...), simple projects using mainly C++, and a bit of Python for memory management.

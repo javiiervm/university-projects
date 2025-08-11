@@ -1,0 +1,74 @@
+// ==================== CONSTANTS ====================
+
+const int bufferSize = 5;  // Declares the maximum buffer size, which can hold up to 5 items.
+
+int buffer = 0;  // Declares a variable that simulates the buffer, initially empty (0 items in it).
+
+semaphore s = 1, n = 0, e = bufferSize;  // Declares semaphores for synchronization control:
+// 's' is a semaphore used to control access to the critical section (CS), initialized to 1, meaning it starts as available.
+// 'n' ensures consumers wait if there are no items to consume in the buffer. It is initialized to 0 because the buffer starts empty.
+// 'e' ensures producers wait if the buffer is full. It is initialized to bufferSize (5), as the buffer initially has all slots available.
+
+// ==================== FUNCTIONS ====================
+
+void add_buffer() {
+    buffer = buffer + 1;  // Increments the buffer by 1 (adding an item).
+}
+
+void take_buffer() {
+    buffer = buffer - 1;  // Decrements the buffer by 1 (removing an item).
+}
+
+// ==================== FUNCTION DECLARATIONS ====================
+
+void produce() {}  // Placeholder function for production, simulating the process of creating an item.
+
+void consume() {}  // Placeholder function for consumption, simulating the process of consuming an item.
+
+// ==================== PRODUCER ====================
+
+void producer() {
+    for(;;) {  // Infinite loop for continuous production.
+        produce();  // Simulates item production.
+
+        p(e);  // Waits for an available slot in the buffer ('e' ensures the buffer is not full).
+               // This decreases 'e' by 1, indicating one less empty slot is available.
+        
+        p(s);  // Enters the critical section (buffer access), ensuring only one producer or consumer accesses the buffer at a time.
+               // 'p(s)' locks the critical section by decreasing 's' from 1 to 0.
+        
+        add_buffer();  // Adds one item to the buffer by incrementing its value.
+        
+        v(s);  // Exits the critical section, allowing others to access it. 'v(s)' increments 's' back to 1.
+        
+        v(n);  // Signals that an item is available for consumption by increasing 'n' (number of items in the buffer).
+    }
+}
+
+// ==================== CONSUMER ====================
+
+void consumer() {
+    for(;;) {  // Infinite loop for continuous consumption.
+        p(n);  // Waits for an available item in the buffer ('n' ensures there is something to consume).
+               // This decreases 'n' by 1, indicating one less item is available.
+        
+        p(s);  // Enters the critical section (buffer access), ensuring only one producer or consumer accesses the buffer at a time.
+               // 'p(s)' locks the critical section by decreasing 's' from 1 to 0.
+        
+        take_buffer();  // Removes one item from the buffer by decrementing its value.
+        
+        v(s);  // Exits the critical section, allowing others to access it. 'v(s)' increments 's' back to 1.
+        
+        v(e);  // Signals that there is now one more empty slot in the buffer by increasing 'e'.
+        consume();  // Simulates item consumption.
+    }
+}
+
+// ==================== MAIN ====================
+
+void main() {
+    cobegin {  // Starts concurrent execution of producer and consumer processes.
+          producer();  // Begins the producer function.
+          consumer();  // Begins the consumer function.
+    }
+}
