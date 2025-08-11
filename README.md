@@ -1,11 +1,13 @@
 <div align="center">
   <h1 align="center">University projects</h1>
+  <img src="https://img.shields.io/badge/Bash-5.2-black?logo=gnu-bash&logoColor=white"/>
   <img src="https://img.shields.io/badge/C-99-gray?logo=c&logoColor=white"/>
   <img src="https://img.shields.io/badge/C++-17-blue?logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/C%23-12-239120?logo=csharp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Java-17-orange?logo=java&logoColor=white"/>
   <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Racket-9.9.1-red?logo=racket&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Shell-CLI-black?logo=gnu-bash&logoColor=white"/>
   <img src="https://img.shields.io/badge/Swift-5.10-orange?logo=swift&logoColor=white"/>
 </div>
 <br></br>
