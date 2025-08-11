@@ -1,0 +1,126 @@
+# ---------- QuickSort ----------
+set terminal png
+set output "quickSort.png"
+
+set xlabel "Array size"
+set ylabel "Millions of program steps"
+
+set xtics (2**15, 2**16, 2**17, 2**18, 2**19, 2**20)
+
+set logscale x 2
+set format x '2^{%L}'
+unset logscale x
+
+set title  "QuickSort"
+
+plot "qs-vs-hs.Msteps" using 1:2 with lines title "Random vector" ,\
+    "qs-vs-hs.Msteps" using 1:4 with lines title "Ascending vector" ,\
+    "qs-vs-hs.Msteps" using 1:6 with lines title "Descending vector"
+
+# -------------------------------------------------------------------------
+
+# ---------- HeapSort ----------
+
+set terminal png
+set output "heapSort.png"
+
+set xlabel "Array size"
+set ylabel "Millions of program steps"
+
+set xtics (2**15, 2**16, 2**17, 2**18, 2**19, 2**20)
+
+set logscale x 2
+set format x '2^{%L}'
+unset logscale x
+
+set title  "HeapSort"
+
+plot "qs-vs-hs.Msteps" using 1:3 with lines title "Random vector" ,\
+    "qs-vs-hs.Msteps" using 1:5 with lines title "Ascending vector" ,\
+    "qs-vs-hs.Msteps" using 1:7 with lines title "Descending vector"
+
+# -------------------------------------------------------------------------
+
+# ---------- Vectores aleatorios ----------
+
+set terminal png
+set output "qs-vs-hs-RA.png" 
+
+set xlabel "Array size"
+set ylabel "Millions of program steps"
+
+set xtics (2**15, 2**16, 2**17, 2**18, 2**19, 2**20)
+
+set logscale x 2
+set format x '2^{%L}'
+unset logscale x
+
+set title  "QuickSort vs HeapSort - Random vector"
+
+y(x)=a*x*log(x) + b 
+fit y(x) "qs-vs-hs.Msteps" using 1:2 via a,b
+z(x)=c*x*log(x) + d 
+fit z(x) "qs-vs-hs.Msteps" using 1:3 via c,d
+
+
+plot "qs-vs-hs.Msteps" using 1:2 with lines title "QuickSort" ,\
+    "qs-vs-hs.Msteps" using 1:3 with lines title "HeapSort" ,\
+    y(x) title "QuickSort time" ,\
+    z(x) title "HeapSort time"
+
+# -------------------------------------------------------------------------
+
+# ---------- Vectores ascendentes ----------
+
+set terminal png
+set output "qs-vs-hs-SA.png" 
+
+set xlabel "Array size"
+set ylabel "Millions of program steps"
+
+set xtics (2**15, 2**16, 2**17, 2**18, 2**19, 2**20)
+
+set logscale x 2
+set format x '2^{%L}'
+unset logscale x
+
+set title  "QuickSort vs HeapSort - Ascending vector"
+
+y(x)=e*x*log(x) + f 
+fit y(x) "qs-vs-hs.Msteps" using 1:4 via e,f
+z(x)=g*x*log(x) + h 
+fit z(x) "qs-vs-hs.Msteps" using 1:5 via g,h
+
+plot "qs-vs-hs.Msteps" using 1:4 with lines title "QuickSort" ,\
+    "qs-vs-hs.Msteps" using 1:5 with lines title "HeapSort" ,\
+    y(x) title "QuickSort time" ,\
+    z(x) title "HeapSort time"
+
+# -------------------------------------------------------------------------
+
+# ---------- Vectores descendentes ----------
+
+set terminal png
+set output "qs-vs-hs-RSA.png" 
+
+set xlabel "Array size"
+set ylabel "Millions of program steps"
+
+set xtics (2**15, 2**16, 2**17, 2**18, 2**19, 2**20)
+
+set logscale x 2
+set format x '2^{%L}'
+unset logscale x
+
+set title  "QuickSort vs HeapSort - Descending vector"
+
+y(x)=e*x*log(x) + f 
+fit y(x) "qs-vs-hs.Msteps" using 1:6 via e,f
+z(x)=g*x*log(x) + h 
+fit z(x) "qs-vs-hs.Msteps" using 1:7 via g,h
+
+plot "qs-vs-hs.Msteps" using 1:6 with lines title "QuickSort" ,\
+    "qs-vs-hs.Msteps" using 1:7 with lines title "HeapSort" ,\
+    y(x) title "QuickSort time" ,\
+    z(x) title "HeapSort time"
+
