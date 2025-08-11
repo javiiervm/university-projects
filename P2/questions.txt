@@ -1,0 +1,7 @@
+1|What is a matrix?|A bidimensional array
+1|I don't understand what a boolean is|
+
+2||The question is empty
+1|What is the use of break?
+5|How is inheritance implemented|Not studied in this subject
+7|||

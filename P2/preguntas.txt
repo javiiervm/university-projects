@@ -1,0 +1,10 @@
+1|¿En qué casos es recomendable usar un bucle do-while en lugar de un while?
+1|¿Por qué no es recomendable utilizar variables globales?
+2|¿Cuál es la diferencia entre 'strcpy' y 'strncpy'?
+2|¿Por qué se prefiere el uso de la clase string en lugar de arrays de caracteres ('char[]') para manipular texto en C++?
+3|¿En qué casos usaríamos un fichero de tipo fstream?
+3|¿Hay alguna otra diferencia importante entre ifstream y ofstream además de su forma predeterminada de abrirse?
+4|¿Por qué si no uso punteros para enviar un array a una función su contenido no se modifica?
+4|¿Por qué no se puede acceder a una dirección de memoria que contiene el valor NULL?
+5|¿Cuál es la principal diferencia entre una clase y un struct? ¿Por qué son conceptos distintos si utilizan una estructura tan similar?
+5|En una clase, ¿cómo puedo modificar datos de tipo privado?
