@@ -2,8 +2,6 @@
   <h1 align="center">University projects</h1>
   <img src="https://img.shields.io/badge/C-99-gray?logo=c&logoColor=white"/>
   <img src="https://img.shields.io/badge/C++-17-blue?logo=cplusplus&logoColor=white"/>
-  <img src="https://img.shields.io/badge/C++-17-blue?logo=cplusplus&logoColor=white"/>
-  <img src="https://img.shields.io/badge/C++-17-blue?logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/C%23-12-239120?logo=csharp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Java-17-orange?logo=java&logoColor=white"/>
   <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white"/>
