@@ -1,0 +1,6 @@
+walk;2.5;20
+jump;120;30
+walk;90;50
+somersault;10.6;45
+crouch;3.5;8
+pepe;3.5;8
