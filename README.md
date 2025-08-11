@@ -14,6 +14,12 @@ Here you can find projects and programming exercises I've made in class during m
 
 ## Subjects
 
+### Year 1
+- [P2](./P2): C/C++ and introduction to OOP.
+
 ### Year 2
+- [ADA](./ADA): Algorythm analysis and design, optimization and code speed up (applied in C++).
 - [LPP](./LPP): Functional programming projects (mainly using Scheme) and introduction to Swift.
+- [P3](./P3): OOP programming deeply (inheritance, generalization...) using Java.
 - [PED](./PED): Data structures, OOP design in C++ of vectors, lists and binary trees.
+- [SO](./SO): Operating systems (sockets, pipelines...), simple projects using mainly C++ and a bit of Python.
