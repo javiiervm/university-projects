@@ -21,7 +21,7 @@ Here you can find projects and programming exercises I've made in class during m
 
 ### Year 2
 - [ADA](./ADA): Algorythm analysis and design, optimization and code speed up (applied in C++).
-- [HADA](./HADA):
+- [HADA](./HADA): ASP.NET & C#, server-side apps with SQL Server; dynamic UIs using HTML, CSS, JavaScript, Ajax Toolkit.
 - [LPP](./LPP): Functional programming projects (mainly using Scheme) and introduction to Swift.
 - [P3](./P3): OOP programming deeply (inheritance, generalization...) using Java. Projects are structured and made for Oracle IDE for Java.
 - [PED](./PED): Data structures, OOP design in C++ of vectors, lists and binary trees.
